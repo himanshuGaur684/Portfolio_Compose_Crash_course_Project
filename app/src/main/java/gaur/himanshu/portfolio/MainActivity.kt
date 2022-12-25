@@ -36,7 +36,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
 @Composable
 fun Portfolio() {
     Surface(
@@ -52,14 +51,17 @@ fun Portfolio() {
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.padding(12.dp)
         ) {
-
             Image(
                 painter = painterResource(id = R.drawable.profile), contentDescription = null,
                 modifier = Modifier.size(80.dp)
             )
+
             Spacer(modifier = Modifier.height(8.dp))
+
             Divider()
+
             Spacer(modifier = Modifier.height(8.dp))
+
             Text(
                 text = "Himanshu Gaur", style = TextStyle(
                     color = Color.Green, fontSize = 20.sp, fontWeight = FontWeight.Bold
@@ -103,11 +105,7 @@ fun Portfolio() {
             Button(onClick = { /*TODO*/ }) {
                 Text(text = "My Projects")
             }
-
-
         }
-
-
     }
 }
 
