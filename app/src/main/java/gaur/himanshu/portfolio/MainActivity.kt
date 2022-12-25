@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -36,16 +37,15 @@ class MainActivity : ComponentActivity() {
 }
 
 
-@Preview(showBackground = true)
 @Composable
 fun Portfolio() {
-
     Surface(
-        elevation = 12.dp,
-        shape = RoundedCornerShape(8.dp),
+        elevation = 8.dp,
+        shape = RoundedCornerShape(12.dp),
+        color = MaterialTheme.colors.background,
         modifier = Modifier
-            .padding(12.dp)
             .fillMaxWidth()
+            .padding(12.dp)
     ) {
 
         Column(
@@ -54,36 +54,25 @@ fun Portfolio() {
         ) {
 
             Image(
-                painter = painterResource(R.drawable.profile), contentDescription = null,
-                modifier = Modifier
-                    .size(80.dp)
-                    .clip(CircleShape)
+                painter = painterResource(id = R.drawable.profile), contentDescription = null,
+                modifier = Modifier.size(80.dp)
             )
-
             Spacer(modifier = Modifier.height(8.dp))
-
             Divider()
-
-
             Spacer(modifier = Modifier.height(8.dp))
-
             Text(
                 text = "Himanshu Gaur", style = TextStyle(
-                    color = Color.Green,
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold
+                    color = Color.Green, fontSize = 20.sp, fontWeight = FontWeight.Bold
                 )
             )
-
             Text(text = "Android Compose Developer", style = MaterialTheme.typography.caption)
 
-
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(12.dp))
 
             Row {
                 Image(
                     painter = painterResource(id = R.drawable.instagram), contentDescription = null,
-                    modifier = Modifier.size(20.dp)
+                    modifier = Modifier.size(18.dp)
                 )
 
                 Text(
@@ -91,18 +80,16 @@ fun Portfolio() {
                     style = MaterialTheme.typography.caption,
                     modifier = Modifier.padding(horizontal = 8.dp)
                 )
+
             }
 
             Spacer(modifier = Modifier.height(4.dp))
 
             Row {
-
-
                 Image(
                     painter = painterResource(id = R.drawable.github), contentDescription = null,
-                    modifier = Modifier.size(20.dp)
+                    modifier = Modifier.size(18.dp)
                 )
-
                 Text(
                     text = "/himanshuGaur684",
                     style = MaterialTheme.typography.caption,
@@ -110,17 +97,18 @@ fun Portfolio() {
                 )
 
             }
+
             Spacer(modifier = Modifier.height(12.dp))
 
-            Button(onClick = { }) {
+            Button(onClick = { /*TODO*/ }) {
                 Text(text = "My Projects")
             }
+
 
         }
 
 
     }
-
 }
 
 
