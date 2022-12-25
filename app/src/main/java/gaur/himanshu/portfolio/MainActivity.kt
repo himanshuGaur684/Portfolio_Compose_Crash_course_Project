@@ -41,9 +41,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Portfolio() {
 
-    val isOpen = remember {
-        mutableStateOf(false)
-    }
 
     Surface(
         elevation = 8.dp,
@@ -109,17 +106,16 @@ fun Portfolio() {
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            Button(onClick = { isOpen.value = !isOpen.value }) {
+            Button(onClick = { }) {
                 Text(text = "My Projects")
             }
 
-            if(isOpen.value){
-                LazyColumn {
-                    items(getProjectList()) {
-                        ProjectItem(it)
-                    }
+            LazyColumn {
+                items(getProjectList()) {
+                    ProjectItem(it)
                 }
             }
+
 
         }
     }
@@ -129,9 +125,11 @@ fun Portfolio() {
 @Composable
 fun ProjectItem(project: Project) {
 
-    Row(modifier = Modifier
-        .fillMaxWidth()
-        .padding(8.dp)) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+    ) {
 
         Image(
             painter = painterResource(id = R.drawable.profile), contentDescription = null,
