@@ -32,8 +32,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             PortfolioTheme {
                 // A surface container using the 'background' color from the theme
-//                Portfolio()
-                StateManagement()
+                Portfolio()
+//                StateManagement()
             }
         }
     }
@@ -42,6 +42,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Portfolio() {
 
+    val isOpen = remember {
+        mutableStateOf(false)
+    }
 
     Surface(
         elevation = 8.dp,
@@ -107,17 +110,17 @@ fun Portfolio() {
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            Button(onClick = { }) {
+            Button(onClick = { isOpen.value = !isOpen.value }) {
                 Text(text = "My Projects")
             }
 
-            LazyColumn {
-                items(getProjectList()) {
-                    ProjectItem(it)
+            if (isOpen.value) {
+                LazyColumn {
+                    items(getProjectList()) {
+                        ProjectItem(it)
+                    }
                 }
             }
-
-
         }
     }
 }
