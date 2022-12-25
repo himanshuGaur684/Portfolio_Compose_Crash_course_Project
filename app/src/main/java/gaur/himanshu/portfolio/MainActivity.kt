@@ -6,6 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -105,9 +107,62 @@ fun Portfolio() {
             Button(onClick = { /*TODO*/ }) {
                 Text(text = "My Projects")
             }
+
+            LazyColumn {
+                items(getProjectList()) {
+                    ProjectItem(it)
+                }
+            }
+
         }
     }
 }
+
+
+@Composable
+fun ProjectItem(project: Project) {
+
+    Row(modifier = Modifier.fillMaxWidth().padding(8.dp)) {
+
+        Image(
+            painter = painterResource(id = R.drawable.profile), contentDescription = null,
+            modifier = Modifier
+                .size(60.dp)
+                .clip(CircleShape)
+        )
+
+        Column(modifier = Modifier.padding(horizontal = 8.dp)) {
+            Text(text = project.name, style = MaterialTheme.typography.h6)
+            Text(text = project.desc, style = MaterialTheme.typography.body1)
+
+        }
+
+    }
+
+}
+
+
+fun getProjectList(): List<Project> {
+
+    return listOf(
+        Project(name = "Social Media App", desc = "Connect with your friends"),
+        Project(name = "Media Player App", desc = "Listen music endlessly"),
+        Project(name = "Gaming Media", desc = "God of war Ragnarok lover"),
+        Project(name = "Social Media App", desc = "Connect with your friends"),
+        Project(name = "Media Player App", desc = "Listen music endlessly"),
+        Project(name = "Gaming Media", desc = "God of war Ragnarok lover"),
+        Project(name = "Social Media App", desc = "Connect with your friends"),
+        Project(name = "Media Player App", desc = "Listen music endlessly"),
+        Project(name = "Gaming Media", desc = "God of war Ragnarok lover"),
+        Project(name = "Social Media App", desc = "Connect with your friends"),
+        Project(name = "Media Player App", desc = "Listen music endlessly"),
+        Project(name = "Gaming Media", desc = "God of war Ragnarok lover"),
+    )
+}
+
+data class Project(
+    val name: String, val desc: String
+)
 
 
 @Composable
