@@ -30,7 +30,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             PortfolioTheme {
                 // A surface container using the 'background' color from the theme
-                Portfolio()
+//                Portfolio()
+                StateManagement()
             }
         }
     }
